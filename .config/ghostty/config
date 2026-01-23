@@ -1,0 +1,8 @@
+font-size = 17
+
+theme = "gruvbox.conf"
+cursor-style = bar
+adjust-cursor-thickness =12
+background-opacity = 0.5
+background-blur-radius = 30
+
