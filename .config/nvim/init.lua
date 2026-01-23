@@ -1056,6 +1056,13 @@ endfunction
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 ]]
 
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]]
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=4 sts=4 sw=4 et
 vim.opt.expandtab = true

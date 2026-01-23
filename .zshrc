@@ -2,6 +2,9 @@ export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib
 export LDFLAGS="-L/opt/homebrew/lib -L/opt/homebrew/opt/libffi/lib"
 export CPPFLAGS="-I/opt/homebrew/include -I/opt/homebrew/opt/libffi/include"
 
+CASE_SENSITIVE="false"
+ENABLE_CORRECTION="true"
+
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd --hook prompt zsh)"
 export EDITOR=nvim
@@ -13,7 +16,8 @@ activate() {
 }
 # alias activate="source .venv/bin/activate"
 alias pyrun="python3 main.py"
-alias pokefetch="pokeget random --hide-name --mega | fastfetch --file-raw -"
+alias pokefetch="pokeget random --hide-name | fastfetch --file-raw -"
+alias ll="ls -la"
 
 spf() {
     os=$(uname -s)
