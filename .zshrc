@@ -1,6 +1,7 @@
 export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
 export LDFLAGS="-L/opt/homebrew/lib -L/opt/homebrew/opt/libffi/lib"
 export CPPFLAGS="-I/opt/homebrew/include -I/opt/homebrew/opt/libffi/include"
+export XDG_CONFIG_HOME="$HOME/.config/"
 
 CASE_SENSITIVE="false"
 ENABLE_CORRECTION="true"
@@ -16,7 +17,7 @@ activate() {
 }
 # alias activate="source .venv/bin/activate"
 alias pyrun="python3 main.py"
-alias pokefetch="pokeget random --hide-name | fastfetch --file-raw -"
+alias pokefetch="clear; pokeget random --hide-name | fastfetch --file-raw -"
 alias ll="ls -la"
 
 spf() {
@@ -56,3 +57,9 @@ path=('/Users/samyakrai/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
+# Created by `pipx` on 2026-01-25 13:48:27
+export PATH="$PATH:/Users/samyakrai/.local/bin"
+
+setopt HIST_IGNORE_SPACE
+alias jrnl=" jrnl"

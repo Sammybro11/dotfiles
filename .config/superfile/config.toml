@@ -173,3 +173,8 @@ zoxide_support = true
 #   pdf = "zathura"
 #   conf = "nvim"
 [open_with]
+png = "preview"
+pdf = "preview"
+toml = "nvim"
+conf = "nvim"
+md = "nvim"

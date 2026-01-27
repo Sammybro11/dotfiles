@@ -1056,12 +1056,18 @@ endfunction
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 ]]
 
-vim.cmd [[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]]
+-- vim.cmd [[
+--   highlight Normal guibg=none
+--   highlight NonText guibg=none
+--   highlight Normal ctermbg=none
+--   highlight NonText ctermbg=none
+-- ]]
+
+vim.filetype.add {
+    extension = {
+        jrnl = 'jrnl',
+    },
+}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=4 sts=4 sw=4 et

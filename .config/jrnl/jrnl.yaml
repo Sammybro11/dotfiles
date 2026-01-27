@@ -1,0 +1,19 @@
+colors:
+  body: none
+  date: white
+  tags: yellow
+  title: cyan
+default_hour: 21
+default_minute: 0
+editor: nvim
+encrypt: true
+highlight: true
+indent_character: '|'
+journals:
+  default:
+    journal: /Users/samyakrai/Work/Markdown/.jrnl/journal.txt
+linewrap: 79
+tagsymbols: '#@'
+template: "~/.config/jrnl/default.jrnl"
+timeformat: '%F %r'
+version: v4.2.1
