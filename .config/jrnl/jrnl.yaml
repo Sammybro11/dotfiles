@@ -11,7 +11,7 @@ highlight: true
 indent_character: '|'
 journals:
   default:
-    journal: /Users/samyakrai/Work/Markdown/.jrnl/journal.txt
+    journal: /Users/samyakrai/Work/.jrnl/journal.txt
 linewrap: 79
 tagsymbols: '#@'
 template: "~/.config/jrnl/default.jrnl"
