@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "docright.nvim": {
+      "rev": "bb92ab9fa99bb078b983115fc9104b4dfb47e4a9",
+      "src": "https://github.com/Anirudh0616/docright.nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"

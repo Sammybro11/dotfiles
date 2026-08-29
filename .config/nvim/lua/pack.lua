@@ -6,10 +6,21 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
+    -- {
+    --     src = "https://github.com/Anirudh0616/docright.nvim",
+    --     name = "docright.nvim",
+    -- },
 --    "https://github.com/tpope/vim-fugitive",
 })
 
 require("gruvbox").setup()
+
+---- Anirudh Bhat's AI Nvim Doc Reader -----
+-- require("docright").setup({
+--   provider = "ollama",
+--   model = "maternion/strand-rust-coder:14b", -- or the model name that you are using
+--   endpoint = "http://127.0.0.1:11434/api/generate",
+-- })
 
 ---- mini files (file explorer) ----
 local MiniFiles = require("mini.files")
