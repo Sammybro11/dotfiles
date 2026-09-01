@@ -1,0 +1,9 @@
+{
+  "trustedtaps": [
+    "nikitabobko/tap"
+  ],
+  "trustedformulae": [
+    "charmbracelet/tap/crush",
+    "floatpane/matcha/matcha"
+  ]
+}

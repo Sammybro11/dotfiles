@@ -1,0 +1,17 @@
+{
+  "accounts": [
+    {
+      "id": "c46da737-9e54-458e-8b10-ece5b85f0f22",
+      "name": "Samyak Rai",
+      "email": "srai890890@gmail.com",
+      "service_provider": "gmail",
+      "fetch_email": "srai890890@gmail.com",
+      "catch_all": true,
+      "auth_method": "password",
+      "protocol": "imap",
+      "pop3_port": 995
+    }
+  ],
+  "disable_notifications": true,
+  "theme": "Peach"
+}
