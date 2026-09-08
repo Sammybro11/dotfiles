@@ -11,13 +11,15 @@ eval "$(zoxide init --cmd cd --hook prompt zsh)"
 export EDITOR=nvim
 export VISUAL=nvim
 
-activate() {
-    source .venv/bin/activate
-    which python3
-}
-# alias activate="source .venv/bin/activate"
-alias pyrun="python3 main.py"
+# activate() {
+#     source .venv/bin/activate
+#     which python3
+# }
+# # alias activate="source .venv/bin/activate"
+# alias pyrun="python3 main.py"
+
 alias pokefetch="clear; pokeget random --hide-name | fastfetch --file-raw -"
+# Shorcut for easier file reading
 alias ll="ls -la"
 
 spf() {
@@ -55,11 +57,9 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 path=('/Users/samyakrai/.juliaup/bin' $path)
 export PATH
+# Tab completion for juliaup and julia channel selection
+[ -f "/Users/samyakrai/.julia/juliaup/completions/zsh.zsh" ] && source "/Users/samyakrai/.julia/juliaup/completions/zsh.zsh"
 
 # <<< juliaup initialize <<<
 
-# Created by `pipx` on 2026-01-25 13:48:27
-export PATH="$PATH:/Users/samyakrai/.local/bin"
 
-setopt HIST_IGNORE_SPACE
-alias jrnl=" jrnl"
