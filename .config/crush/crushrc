@@ -1,4 +1,46 @@
-provider add llamacpp \
-  --name "llama.cpp" \
-  --type llamacpp \
-  --base-url "http://localhost:2222"
+option skill-path ~/.config/agents/skills
+
+# Qiskit MCP servers (official, Qiskit/mcp-servers) — no auth needed
+if command -v uvx >/dev/null 2>&1; then
+  mcp add qiskit --command uvx --args qiskit-mcp-server
+  mcp add qiskit-docs --command uvx --args qiskit-docs-mcp-server
+fi
+
+# Cap effective context at 80k so auto-summarize engages early,
+# well before the provider's full context window.
+# model add hyper/glm-5.3-flash --context-window 80000
+
+# alphaXiv MCP — arXiv paper discovery, full text, PDF Q&A, paper-repo reads.
+# Remote HTTP server, OAuth browser sign-in on first use. Only the 4 research
+# tools are enabled; library/follow tools stay out (lean + quota-safe).
+mcp add alphaxiv --type http \
+  --url "https://api.alphaxiv.org/mcp/v1" \
+  --oauth true \
+  --enabled-tools discover_papers \
+  --enabled-tools get_paper_content \
+  --enabled-tools answer_pdf_queries \
+  --enabled-tools read_files_from_github_repository
+
+# Python LSPs for reviewing simulation code
+if command -v pyright >/dev/null 2>&1; then
+  lsp add python --command pyright --filetypes python
+fi
+if command -v ruff >/dev/null 2>&1; then
+  lsp add ruff --command "ruff server" --filetypes python
+fi
+
+# Rust LSP — dormant outside Cargo projects
+if command -v rust-analyzer >/dev/null 2>&1; then
+  lsp add rust --command rust-analyzer --filetypes rust --root-markers Cargo.toml
+fi
+
+# Typst LSP
+if command -v tinymist >/dev/null 2>&1; then
+  lsp add typst --command tinymist --filetypes typst --root-markers typst.toml
+fi
+
+# # Knowledge vault is read-only for agents (read/grep allowed, writes blocked)
+# hook add PreToolUse \
+#   --matcher "^edit$|^multiedit$|^write$" \
+#   --command "$HOME/.config/crush/hooks/vault-readonly.sh" \
+#   --name vault-readonly
