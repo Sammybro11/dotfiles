@@ -24,4 +24,20 @@ vim.lsp.enable({
     "marksman",
     "gopls",
     "rust_analyzer",
+    "tinymist",
+    "pyright",
+    "ruff",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function(args)
+        vim.bo[args.buf].textwidth = 88
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = args.buf,
+            callback = function()
+                vim.lsp.buf.format({ filter = function(c) return c.name == "ruff" end })
+            end,
+        })
+    end,
 })
