@@ -51,6 +51,8 @@ editor_max_width = 920  # max width of the editor column (px)
 completed_task_style = "none"  # none | strikethrough | gray | gray-strikethrough — style checked-task text
 math_renderer = "typst"  # katex | typst: typesetter for $…$ / $$…$$ math
 typst_tag_preambles = false  # true | false — prepend Typst definitions from notes in a `typst` folder, chosen by a note's tags
+harper_enabled = false  # true | false: grammar and spelling with Harper, checked on this device
+harper_dialect = "american"  # american | british | australian | canadian | indian
 loose_math_delimiters = false  # render $$…$$ display math even with text before/after the fences
 default_view_mode = "edit"  # edit | split | preview — the mode a note opens in before it has a remembered one
 line_number_mode = "off"  # off | absolute | relative
@@ -58,6 +60,7 @@ line_number_position = "text"  # text | edge
 word_wrap = true  # wrap long lines vs. scroll horizontally
 preview_smooth_scroll = true  # animate half-page scroll in the preview
 pdf_embed_in_edit_mode = "compact"  # compact | full
+ignored_keys = []  # keys the app ignores entirely, by DOM key or code, e.g. ["KanaMode"] for the no-op a Kanata/QMK tap-hold layer sends with every keystroke
 
 [appearance]
 pdf_export_use_theme = false  # true | false — export PDFs using the current theme instead of a clean light print theme
@@ -90,13 +93,16 @@ calendar_week_start = "monday"  # monday | sunday | locale
 calendar_show_week_numbers = true  # show ISO week numbers in the calendar
 tasks_view_mode = "list"  # list | calendar | kanban
 show_archived_tasks = false  # keep tasks from archived notes in the Tasks views
-kanban_group_by = "status"  # status | priority | folder
+kanban_group_by = "status"  # status | priority | folder (each note's own folder; see kanban_folder_root) | field:<key>
+kanban_folder_root = ""  # folder board: group by the children of this folder, e.g. "Projects" (deeper notes roll up, notes outside it share one column); "" = each note's own folder
 kanban_statuses = []  # custom-status Kanban columns, in order — e.g. ["backlog", "in_progress", "review", "done"]
 hidden_workflow_presets = []  # built-in workflow recipes hidden from the gallery, by id — e.g. ["reading-log"]
 
 # Keymap overrides. Add or uncomment "<action.id>" = "<binding>" lines.
 # Binding syntax: "Mod+P" = Cmd/Ctrl+P, "Shift+Mod+K", "Ctrl+W", "Space",
 # or a two-key sequence like "g g". Uncomment a reference line to remap it.
+# An empty binding ("") removes the key entirely: nothing triggers that
+# action until you give it a key again or delete the line.
 [keymaps]
 
 # --- All actions (defaults shown; uncomment + edit to override) ---
@@ -143,6 +149,7 @@ hidden_workflow_presets = []  # built-in workflow recipes hidden from the galler
 # Vim
 # "vim.leaderPrefix" = "Space"  # Leader key
 # "vim.leaderOpenBuffers" = "o"  # Leader: open buffers
+# "vim.leaderCloudConflicts" = "r"  # Leader: review Cloud conflicts
 # "vim.leaderWorkflows" = "a"  # Leader: open workflows
 # "vim.leaderAtlas" = "g"  # Leader: open atlas
 # "vim.leaderSearchNotes" = "f"  # Leader: search notes
@@ -181,6 +188,11 @@ hidden_workflow_presets = []  # built-in workflow recipes hidden from the galler
 # "vim.unfoldCurrent" = "z o"  # Unfold heading at cursor
 # "vim.foldAll" = "z M"  # Fold all headings
 # "vim.unfoldAll" = "z R"  # Unfold all headings
+# "vim.harperNext" = "] s"  # Next Harper suggestion
+# "vim.harperPrevious" = "[ s"  # Previous Harper suggestion
+# "vim.harperSuggest" = "z ="  # Harper suggestions at cursor
+# "vim.harperAddWord" = "z g"  # Add word to Harper dictionary
+# "vim.harperIgnore" = "z G"  # Ignore Harper suggestion
 # Navigation
 # "nav.moveDown" = "j"  # Move selection down
 # "nav.moveUp" = "k"  # Move selection up
@@ -203,6 +215,7 @@ hidden_workflow_presets = []  # built-in workflow recipes hidden from the galler
 # "nav.toggleTask" = "x"  # Toggle task
 # "tasks.moveTaskUp" = "K"  # Move task up
 # "tasks.moveTaskDown" = "J"  # Move task down
+# "tasks.savedFilters" = "F"  # Pick a saved Tasks filter
 # "editor.hopMarkerForward" = "Ctrl+."  # Hop past next marker
 # "editor.hopMarkerBackward" = "Ctrl+,"  # Hop before previous marker
 # "editor.foldHeading" = "Alt+Mod+F"  # Fold heading
@@ -235,3 +248,9 @@ hidden_workflow_presets = []  # built-in workflow recipes hidden from the galler
 # Example: "->" = "→"
 [text_replacements]
 "->" = "→"
+
+# Saved Tasks filters: a name you pick = the filter query it stands for.
+# Recall one from the chips above the task list, the command palette,
+# or `:filter <name>` in the Tasks view; `:savefilter <name>` adds one.
+# Example: "Project alpha" = "@project:alpha"
+[saved_filters]
