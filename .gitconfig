@@ -1,7 +1,7 @@
 [user]
 	name = Samyak
 	email = srai890890@gmail.com
-	signingkey = /Users/samyakrai/.ssh/id_github
+	signingkey = /Users/samyakrai/.ssh/id_ed25519.pub
 [credential]
 	helper = osxkeychain
 [filter "lfs"]
