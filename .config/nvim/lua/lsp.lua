@@ -19,6 +19,10 @@ vim.lsp.config("lua_ls", {
     },
 })
 
+vim.lsp.config("pyright", {
+    flags = { debounce_text_changes = 3000 },
+})
+
 vim.lsp.enable({
     "lua_ls",
     "marksman",

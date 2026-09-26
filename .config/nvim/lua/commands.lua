@@ -20,20 +20,20 @@ vim.api.nvim_create_user_command("PackUpdate", function(opts)
     end
 end, { nargs = "*", desc = "Update all plugins or specific ones" })
 
--- Journal Autocmd
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPre' }, {
-    group = vim.api.nvim_create_augroup('PrivateJrnl', {}),
-    pattern = '*.jrnl',
-    callback = function()
-        vim.opt_local.swapfile = false
-        vim.opt_local.undofile = false
-        vim.opt_local.backup = false
-        vim.opt_local.writebackup = false
-        vim.opt_local.shelltemp = false
-        vim.opt_local.modeline = false
-
-        vim.opt.shada = ''
-        vim.opt.history = 0
-        vim.opt.secure = true
-    end,
-})
+-- -- Journal Autocmd
+-- vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPre' }, {
+--     group = vim.api.nvim_create_augroup('PrivateJrnl', {}),
+--     pattern = '*.jrnl',
+--     callback = function()
+--         vim.opt_local.swapfile = false
+--         vim.opt_local.undofile = false
+--         vim.opt_local.backup = false
+--         vim.opt_local.writebackup = false
+--         vim.opt_local.shelltemp = false
+--         vim.opt_local.modeline = false
+--
+--         vim.opt.shada = ''
+--         vim.opt.history = 0
+--         vim.opt.secure = true
+--     end,
+-- })
