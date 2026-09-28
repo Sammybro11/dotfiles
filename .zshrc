@@ -7,16 +7,15 @@ CASE_SENSITIVE="false"
 ENABLE_CORRECTION="true"
 
 eval "$(starship init zsh)"
+source <(fzf --zsh)
 eval "$(zoxide init --cmd cd --hook prompt zsh)"
 export EDITOR=nvim
 export VISUAL=nvim
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a89984'
 
-# activate() {
-#     source .venv/bin/activate
-#     which python3
-# }
-# # alias activate="source .venv/bin/activate"
-# alias pyrun="python3 main.py"
+alias activate="source .venv/bin/activate; which python3"
 
 alias pokefetch="clear; pokeget random --hide-name | fastfetch --file-raw -"
 # Shorcut for easier file reading
@@ -45,11 +44,6 @@ spf() {
 
 # Dotfiles alias
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
-
-
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
 
 # >>> juliaup initialize >>>
 
