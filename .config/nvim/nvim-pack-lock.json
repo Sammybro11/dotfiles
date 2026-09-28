@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "csvview.nvim": {
+      "rev": "2466bdda54047f525d4faca53040fe657c9c33db",
+      "src": "https://github.com/hat0uma/csvview.nvim"
+    },
     "docright.nvim": {
       "rev": "bb92ab9fa99bb078b983115fc9104b4dfb47e4a9",
       "src": "https://github.com/Anirudh0616/docright.nvim"
@@ -11,6 +15,10 @@
     "gruvbox.nvim": {
       "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
       "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
+    "kanagawa.nvim": {
+      "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "mason.nvim": {
       "rev": "16ba83bfc8a25f52bb545134f5bee082b195c460",
@@ -27,6 +35,10 @@
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "tmux.nvim": {
+      "rev": "32ceaf2793582955ef9576809730878c4d2d9426",
+      "src": "https://github.com/aserowy/tmux.nvim"
     },
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",

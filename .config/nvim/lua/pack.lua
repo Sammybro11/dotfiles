@@ -7,6 +7,8 @@ vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
     "https://github.com/tpope/vim-fugitive",
+    "https://github.com/aserowy/tmux.nvim",
+    "https://github.com/hat0uma/csvview.nvim"
     -- {
     --     src = "https://github.com/Anirudh0616/docright.nvim",
     --     name = "docright.nvim",
@@ -14,6 +16,16 @@ vim.pack.add({
 })
 
 require("gruvbox").setup()
+require("tmux").setup({
+    copy_sync = {
+        enable = true,
+        sync_clipboard = false,
+        redirect_to_clipboard = true,
+        sync_deletes = false,
+        sync_unnamed = false,
+    },
+})
+require("csvview").setup()
 
 ---- Anirudh Bhat's AI Nvim Doc Reader -----
 -- require("docright").setup({

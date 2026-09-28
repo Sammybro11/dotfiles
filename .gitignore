@@ -8,3 +8,11 @@ Music/
 Pictures/
 Public/
 Work/
+.ssh
+*.git
+.zsh_history
+.python_history
+.qbraid/
+.qiskit/
+.rustup/
+.tmux/
