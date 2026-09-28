@@ -87,7 +87,7 @@ PaperWM:bindHotkeys({
     -- move_window_9 = {{"alt", "cmd", "shift"}, "9"}
 })
 
-PaperWM.window_gap = 40
+PaperWM.window_gap = 20
 PaperWM.window_ratios = {1/3, 2/3, 4/5}
 
 PaperWM:start()
