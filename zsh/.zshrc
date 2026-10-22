@@ -1,0 +1,61 @@
+export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LDFLAGS="-L/opt/homebrew/lib -L/opt/homebrew/opt/libffi/lib"
+export CPPFLAGS="-I/opt/homebrew/include -I/opt/homebrew/opt/libffi/include"
+export XDG_CONFIG_HOME="$HOME/.config/"
+
+CASE_SENSITIVE="false"
+ENABLE_CORRECTION="true"
+
+eval "$(starship init zsh)"
+source <(fzf --zsh)
+eval "$(zoxide init --cmd cd --hook prompt zsh)"
+export EDITOR=nvim
+export VISUAL=nvim
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a89984'
+
+alias activate="source .venv/bin/activate; which python3"
+
+alias pokefetch="clear; pokeget random --hide-name | fastfetch --file-raw -"
+# Shorcut for easier file reading
+alias ll="ls -la"
+
+spf() {
+    os=$(uname -s)
+
+    # Linux
+    if [[ "$os" == "Linux" ]]; then
+        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
+    fi
+
+    # macOS
+    if [[ "$os" == "Darwin" ]]; then
+        export SPF_LAST_DIR="$HOME/Library/Application Support/superfile/lastdir"
+    fi
+
+    command spf "$@"
+
+    [ ! -f "$SPF_LAST_DIR" ] || {
+        . "$SPF_LAST_DIR"
+        rm -f -- "$SPF_LAST_DIR" > /dev/null
+    }
+}
+
+# Dotfiles alias
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/samyakrai/.juliaup/bin' $path)
+export PATH
+# Tab completion for juliaup and julia channel selection
+[ -f "/Users/samyakrai/.julia/juliaup/completions/zsh.zsh" ] && source "/Users/samyakrai/.julia/juliaup/completions/zsh.zsh"
+
+# <<< juliaup initialize <<<
+
+
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi

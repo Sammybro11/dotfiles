@@ -1,0 +1,47 @@
+require("mason").setup()
+
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format Local buffer" })
+vim.keymap.set("n", "df", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+
+vim.diagnostic.config({ virtual_text = true })
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = vim.tbl_deep_extend("force", capabilities, require("mini.completion").get_lsp_capabilities())
+
+vim.lsp.config("*", { capabilities = capabilities })
+
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = { globals = { "vim" } },
+        },
+    },
+})
+
+vim.lsp.config("pyright", {
+    flags = { debounce_text_changes = 3000 },
+})
+
+vim.lsp.enable({
+    "lua_ls",
+    "marksman",
+    "gopls",
+    "rust_analyzer",
+    "tinymist",
+    "pyright",
+    "ruff",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function(args)
+        vim.bo[args.buf].textwidth = 88
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = args.buf,
+            callback = function()
+                vim.lsp.buf.format({ filter = function(c) return c.name == "ruff" end })
+            end,
+        })
+    end,
+})

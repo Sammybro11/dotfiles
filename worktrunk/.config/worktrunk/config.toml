@@ -1,0 +1,8 @@
+[[post-start]]
+copy = "wt step copy-ignored"
+
+[projects."github.com/Sammybro11/CliffordMCMC"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
+
+[projects."github.com/Sammybro11/Solid-State-Physics-Assignment-2026"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
