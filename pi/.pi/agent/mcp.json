@@ -1,0 +1,19 @@
+{
+    "mcpServers": {
+      "qiskit-docs": {
+        "command": "uvx",
+        "args": ["qiskit-docs-mcp-server"],
+        "description": "Search and read Qiskit and IBM Quantum documentation"
+      },
+      "alphaxiv": {
+        "url": "https://api.alphaxiv.org/mcp/v1",
+        "exposure": "hidden",
+        "toolExposure": {
+          "discover_papers": "deferred",
+          "get_paper_content": "deferred",
+          "answer_pdf_queries": "deferred",
+          "read_files_from_github_repository": "deferred"
+        },
+        "description": "arXiv paper discovery, full text, PDF Q&A, paper-repo reads using alphaXiv"       }
+    }
+  }

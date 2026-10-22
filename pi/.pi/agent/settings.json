@@ -1,0 +1,24 @@
+{
+  "$schema": "https://pi.dev/schemas/settings.schema.json",
+  "lastChangelogVersion": "1.4.0",
+  "theme": "dark",
+  "packages": [
+    "npm:@charmland/pi-hyper-provider",
+    "npm:pi-lsp",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-hashline-edit-pro",
+    "npm:pi-session-mail"
+  ],
+  "defaultProvider": "hyper",
+  "defaultModel": "deepseek-v4.1-flash-1017",
+  "enabledModels": [
+    "kimi-k3",
+    "glm-5.3-flash",
+    "deepseek-v4.1-flash-1017"
+  ],
+  "defaultTools": [
+    "+codemode",
+    "+tool_search"
+  ],
+  "externalEditor": "nvim"
+}

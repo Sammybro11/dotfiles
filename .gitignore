@@ -1,0 +1,10 @@
+.DS_Store
+*.log
+*.log.*
+
+pi/.pi/agent/auth.json
+pi/.pi/agent/mcp-auth.json
+pi/.pi/agent/models-store.json
+pi/.pi/agent/trust/
+pi/.pi/agent/sessions/
+pi/.pi/agent/npm/

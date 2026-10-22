@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "servers": [
+      { "id": "pyright", "bin": "pyright-langserver", "args": ["--stdio"],
+        "include": ["**/*.py", "**/*.pyi"], "rootMarkers": ["pyproject.toml", "setup.py"],         
+        "languageIdByExtension": { ".py": "python", ".pyi": "python" } },
+      { "id": "ruff", "bin": "ruff", "args": ["server"],
+        "include": ["**/*.py"], "rootMarkers": ["pyproject.toml", "ruff.toml"],
+        "languageIdByExtension": { ".py": "python" } },
+      { "id": "rust-analyzer", "bin": "rust-analyzer",
+        "include": ["**/*.rs"], "rootMarkers": ["Cargo.toml"],
+        "languageIdByExtension": { ".rs": "rust" } },
+      { "id": "tinymist", "bin": "tinymist",
+        "include": ["**/*.typ"], "rootMarkers": ["typst.toml"],
+        "languageIdByExtension": { ".typ": "typst" } }
+    ]
+  }
