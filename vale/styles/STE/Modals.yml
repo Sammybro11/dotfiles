@@ -1,0 +1,7 @@
+---
+extends: existence
+message: "STE: modal '%s'. Use 'can', 'will', or 'must'. Use 'may' only to give permission."
+level: error
+# 'may' is case-sensitive so the month stays quiet; the other modals are not.
+tokens:
+  - '(?i:\b(?:shall|should|might|could)\b)|\bmay\b'

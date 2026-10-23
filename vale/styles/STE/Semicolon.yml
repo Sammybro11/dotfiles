@@ -1,0 +1,7 @@
+---
+extends: existence
+message: "STE Rule 8.1: do not use a semicolon. Write two sentences, or use 'and' or 'then'."
+level: error
+nonword: true
+tokens:
+  - ';'

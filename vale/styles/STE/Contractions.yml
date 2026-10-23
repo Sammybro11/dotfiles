@@ -1,0 +1,11 @@
+---
+extends: existence
+message: "STE: contraction '%s'. Write the words in full."
+level: error
+ignorecase: true
+tokens:
+  - '\b(?:can|won|don|doesn|isn|aren|wasn|weren|hasn|haven|hadn|shouldn|wouldn|couldn|mustn)[''’]t\b'
+  - '\b(?:it|that|there|what|here|who|let|he|she)[''’]s\b'
+  - '\bI[''’]m\b'
+  - '\b(?:you|we|they)[''’]re\b'
+  - '\b(?:I|you|we|they|it|there|who|he|she)[''’](?:ve|ll|d)\b'

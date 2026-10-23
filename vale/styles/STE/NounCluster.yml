@@ -1,0 +1,16 @@
+---
+extends: sequence
+message: "STE: noun cluster '%[2]s %[3]s %[4]s %[5]s'. Use prepositions or a verb to show how the nouns relate."
+level: error
+# The negated leading token anchors each stack to its first noun, so a run of
+# six nouns raises one alert, not three. A stack at the start of a sentence has
+# no leading token; the negated token accepts the sentence boundary there.
+# Proper nouns are excluded: an institution name is a fixed term, not a
+# cluster the writer can rephrase.
+tokens:
+  - negate: true
+    tag: ^(?:NN|NNS)$
+  - tag: ^(?:NN|NNS)$
+  - tag: ^(?:NN|NNS)$
+  - tag: ^(?:NN|NNS)$
+  - tag: ^(?:NN|NNS)$

@@ -7,7 +7,8 @@
     "npm:pi-lsp",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-hashline-edit-pro",
-    "npm:pi-session-mail"
+    "npm:pi-session-mail",
+    "npm:@tintinweb/pi-subagents"
   ],
   "defaultProvider": "hyper",
   "defaultModel": "deepseek-v4.1-flash-1017",
@@ -17,7 +18,6 @@
     "deepseek-v4.1-flash-1017"
   ],
   "defaultTools": [
-    "+codemode",
     "+tool_search"
   ],
   "externalEditor": "nvim"

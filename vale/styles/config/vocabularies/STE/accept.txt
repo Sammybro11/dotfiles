@@ -1,0 +1,24 @@
+Qiskit
+OpenQASM
+transpile
+transpiler
+qubit
+qubits
+transmon
+transmons
+resonator
+resonators
+anharmonicity
+decoherence
+Hamiltonian
+eigenstate
+eigenstates
+eigenvalue
+eigenvalues
+fidelity
+Pauli
+Kraus
+syndrome
+surface code
+logical qubit
+physical qubit

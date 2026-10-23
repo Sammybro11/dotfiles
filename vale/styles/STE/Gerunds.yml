@@ -1,0 +1,11 @@
+---
+extends: sequence
+message: "STE Rule 3.4: -ing form '%s'. Use the base verb, or a noun if you name a thing."
+level: warning
+ignorecase: true
+# Nouns the tagger reports as VBG. The list holds only words that are never
+# verbs in this context; a real gerund still comes through.
+exceptions:
+  - '(?i)\b(?:string|strings|something|anything|nothing|everything|thing|things|during|building|buildings|meeting|meetings|setting|settings|warning|warnings|superconducting|corresponding|wiring|missing|alternating|underlying|following|including|according|depending|existing|remaining|preceding)\b'
+tokens:
+  - tag: VBG

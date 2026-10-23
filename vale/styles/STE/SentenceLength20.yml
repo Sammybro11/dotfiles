@@ -1,0 +1,7 @@
+---
+extends: occurrence
+message: "STE sentence length: %d words. If this sentence gives an instruction, split it at 20 words."
+level: warning
+scope: sentence
+max: 20
+token: '\b[\w-]+\b'

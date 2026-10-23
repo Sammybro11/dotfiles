@@ -1,0 +1,7 @@
+---
+extends: occurrence
+message: "STE sentence length: %d words. Split it. The limit is 25 words for descriptive text."
+level: error
+scope: sentence
+max: 25
+token: '\b[\w-]+\b'

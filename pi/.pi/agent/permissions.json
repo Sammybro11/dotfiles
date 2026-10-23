@@ -1,0 +1,60 @@
+{
+  "defaultRole": "orchestrator",
+  "roles": {
+    "orchestrator": {
+      "deny": [
+        "bash"
+      ],
+      "ask": [
+        "Agent",
+        "SubagentWorkflow",
+        "codemode"
+      ]
+    },
+    "scout": {
+      "deny": [
+        "bash",
+        "write",
+        "edit",
+        "codemode",
+        "Agent",
+        "SubagentWorkflow"
+      ]
+    },
+    "researcher": {
+      "deny": [
+        "bash",
+        "codemode",
+        "Agent",
+        "SubagentWorkflow"
+      ]
+    },
+    "worker-*": {
+      "deny": [
+        "Agent",
+        "SubagentWorkflow"
+      ]
+    }
+  },
+  "bash": {
+    "deny": [
+      "\\bmkfs\\b",
+      "\\bdd\\s+if=",
+      "\\bshutdown\\b",
+      "\\breboot\\b",
+      "\\bkill\\s+-9\\s+1\\b",
+      ":\\s*\\(\\s*\\)\\s*\\{"
+    ],
+    "ask": [
+      "\\brm\\b",
+      "\\bmv\\b",
+      "\\bgit\\s+push\\b",
+      "\\bgit\\s+reset\\s+--hard\\b",
+      "\\bsudo\\b",
+      "\\bchmod\\b",
+      "\\bchown\\b",
+      "\\bgh\\s+pr\\s+merge\\b",
+      "\\bdocker\\s+(rm|rmi|system prune)\\b"
+    ]
+  }
+}

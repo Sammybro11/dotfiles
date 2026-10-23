@@ -1,0 +1,19 @@
+---
+extends: existence
+message: "STE: vague wording '%s'. Give the condition, the value, or the list."
+level: error
+ignorecase: true
+tokens:
+  - '\band\s*/\s*or\b'
+  - '\bas required\b'
+  - '\bif necessary\b'
+  - '\bif needed\b'
+  - '\bas needed\b'
+  - '\bif applicable\b'
+  - '\bwhere appropriate\b'
+  - '\bwhen appropriate\b'
+  - '\bas appropriate\b'
+  - '\betc\b'
+  - '\band so on\b'
+  - '\band the like\b'
+  - '\bor similar\b'

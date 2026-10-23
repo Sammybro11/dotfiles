@@ -1,0 +1,16 @@
+---
+extends: sequence
+message: "STE Rule 3.6: passive voice. Name the actor and use the active voice when you can."
+level: warning
+# BE form, one intervening adverb, then a past participle. A wider skip window
+# also matched noun phrases such as "is not the expected result", so it stays
+# at one. Two-adverb passives ("was not actually generated") go unreported.
+# Passive is permitted in descriptions when the actor is unknown, so this
+# rule advises and does not block.
+tokens:
+  - pattern: '(?i)\b(?:am|is|are|was|were|be|been|being)\b'
+    tag: ^(?:VBZ|VBP|VBD|VB|VBN|VBG)$
+  - tag: ^VBN$
+    skip: 1
+    # The tagger labels some comparatives as VBN. Keep those out.
+    pattern: '(?i)^(?!(?:simpler|better|worse|larger|smaller|higher|lower|faster|slower|easier|harder|stronger|weaker|longer|shorter|older|newer|greater|fewer)$).*'
